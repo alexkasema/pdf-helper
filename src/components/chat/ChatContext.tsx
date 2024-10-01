@@ -52,6 +52,7 @@ export const ChatContextProvider = ({ fileId, children }: Props) => {
     setMessage(e.target.value);
   };
 
+  //! what we will use to send a message to api/message/ endpoint
   const addMessage = () => sendMessage({ message });
 
   return (
