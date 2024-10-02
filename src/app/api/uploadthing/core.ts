@@ -6,7 +6,6 @@ import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { PineconeStore } from "@langchain/pinecone";
 
-import { UploadThingError } from "uploadthing/server";
 import { pinecone } from "@/lib/pinecone";
 
 const f = createUploadthing();
@@ -14,7 +13,7 @@ const f = createUploadthing();
 // FileRouter for your app, can contain multiple FileRoutes
 export const ourFileRouter = {
   pdfUploader: f({ pdf: { maxFileSize: "4MB" } })
-    .middleware(async ({ req }) => {
+    .middleware(async () => {
       const { getUser } = getKindeServerSession();
       const user = await getUser();
 
@@ -49,7 +48,7 @@ export const ourFileRouter = {
         const pageLevelDocs = await loader.load();
 
         //! we can use this to check if you are on the free or pro plan
-        const pagesAmt = pageLevelDocs.length;
+        // const pagesAmt = pageLevelDocs.length;
 
         //! vectorize and index entire document
         const pineconeIndex = pinecone.index("pdf-helper");
@@ -91,6 +90,7 @@ export const ourFileRouter = {
             id: createdFile.id,
           },
         });
+        console.error("Error indexing pdf: ", error);
       }
     }),
 } satisfies FileRouter;

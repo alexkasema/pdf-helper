@@ -80,5 +80,7 @@ const Message = forwardRef<HTMLDivElement, MessageProps>(
     );
   }
 );
+//! because we used forwardRef
+Message.displayName = "Message";
 
 export default Message;
