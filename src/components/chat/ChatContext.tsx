@@ -114,6 +114,91 @@ export const ChatContextProvider = ({ fileId, children }: Props) => {
           previousMessages?.pages.flatMap((page) => page.messages) ?? [],
       };
     },
+    onSuccess: async (stream) => {
+      //! we get the response back from the api as a stream
+      setIsLoading(false);
+
+      if (!stream) {
+        return toast({
+          title: "There was a problem sending this message",
+          description: "Please refresh this page and try again",
+          variant: "destructive",
+        });
+      }
+
+      //! reading the context of the stream
+      const reader = stream.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+
+      // accumulated response
+      let accResponse = "";
+
+      //! read the content of the stream that we get back from the api in real time
+      while (!done) {
+        //! read the stream
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+
+        //! to get the string content of this stream
+        const chunkValue = decoder.decode(value);
+
+        accResponse += chunkValue;
+
+        //! append chunk to the actual message being displayed(the AI response body)
+        utils.getFileMessages.setInfiniteData(
+          { fileId, limit: INFINITE_QUERY_LIMIT },
+          (old) => {
+            if (!old) return { pages: [], pageParams: [] };
+
+            //! check for each chunk of message we add, if there is a message already from the ai.
+            //! if there is,  we are not going to create another one but instead we will add to it.
+            let isAiResponseCreated = old.pages.some((page) =>
+              page.messages.some((message) => message.id === "ai-response")
+            );
+
+            let updatedPages = old.pages.map((page) => {
+              if (page === old.pages[0]) {
+                let updatedMessages;
+
+                //! if AI response is not yet created we create it once
+                if (!isAiResponseCreated) {
+                  updatedMessages = [
+                    {
+                      createdAt: new Date().toISOString(),
+                      id: "ai-response",
+                      text: accResponse,
+                      isUserMessage: false,
+                    },
+                    ...page.messages,
+                  ];
+                } else {
+                  //! if there is already an AI response, we just add to the existing response
+                  updatedMessages = page.messages.map((message) => {
+                    if (message.id === "ai-response") {
+                      return {
+                        ...message,
+                        text: accResponse,
+                      };
+                    }
+                    return message;
+                  });
+                }
+
+                return {
+                  ...page,
+                  messages: updatedMessages,
+                };
+              }
+
+              return page;
+            });
+
+            return { ...old, pages: updatedPages };
+          }
+        );
+      }
+    },
     onError: (_, __, context) => {
       setMessage(backupMessage.current);
       utils.getFileMessages.setData(
