@@ -34,7 +34,7 @@ const Messages = ({ fileId }: { fileId: string }) => {
   };
 
   const combinedMessages = [
-    ...(true ? [loadingMessage] : []),
+    ...(isAiThinking ? [loadingMessage] : []),
     ...(messages ?? []),
   ];
 
