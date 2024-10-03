@@ -10,10 +10,9 @@ import { ChatContextProvider } from "./ChatContext";
 
 interface PageProps {
   fileId: string;
-  isSubscribed?: boolean;
 }
 
-const ChatWrapper = ({ fileId, isSubscribed }: PageProps) => {
+const ChatWrapper = ({ fileId }: PageProps) => {
   const { data, isLoading } = trpc.getFileUploadStatus.useQuery(
     { fileId },
     {

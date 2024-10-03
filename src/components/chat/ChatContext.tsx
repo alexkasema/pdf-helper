@@ -82,10 +82,10 @@ export const ChatContextProvider = ({ fileId, children }: Props) => {
           }
 
           //! step1: clone the old pages
-          let newPages = [...old.pages];
+          const newPages = [...old.pages];
 
           //! step2: get the latest messages, the last 10 messages and get the one at index 0
-          let latestPage = newPages[0]!;
+          const latestPage = newPages[0]!;
 
           latestPage.messages = [
             {
@@ -153,11 +153,11 @@ export const ChatContextProvider = ({ fileId, children }: Props) => {
 
             //! check for each chunk of message we add, if there is a message already from the ai.
             //! if there is,  we are not going to create another one but instead we will add to it.
-            let isAiResponseCreated = old.pages.some((page) =>
+            const isAiResponseCreated = old.pages.some((page) =>
               page.messages.some((message) => message.id === "ai-response")
             );
 
-            let updatedPages = old.pages.map((page) => {
+            const updatedPages = old.pages.map((page) => {
               if (page === old.pages[0]) {
                 let updatedMessages;
 
