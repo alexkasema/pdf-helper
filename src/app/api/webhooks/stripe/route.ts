@@ -25,7 +25,7 @@ export async function POST(request: Request) {
   const session = event.data.object as Stripe.Checkout.Session;
 
   if (!session?.metadata?.userId) {
-    return new Response(null, {
+    return new Response("No user ID in session metadata", {
       status: 200,
     });
   }
@@ -70,5 +70,5 @@ export async function POST(request: Request) {
     });
   }
 
-  return new Response(null, { status: 200 });
+  return new Response("Event processed successfully", { status: 200 });
 }
