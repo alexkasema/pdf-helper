@@ -8,18 +8,18 @@ export default function Home() {
   return (
     <>
       <MaxWidthWrapper className="mb-12 mt-28 sm:mt-40 flex flex-col items-center justify-center text-center">
-        <div className="mx-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border border-gray-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50">
-          <p className="text-sm font-semibold text-gray-700">
-            mypdf-helper is now public!
-          </p>
-        </div>
         <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
-          Chat with your <span className="text-blue-600">documents</span> in
-          seconds.
+          Unlock the Power of Your{" "}
+          <span className="text-blue-600">documents</span> with{" "}
+          <span className="text-blue-600">AI</span>
         </h1>
         <p className="mt-5 max-w-prose text-zinc-700 sm:text-lg">
-          mypdf-helper allows you to have conversations with any PDF document.
-          Simply upload your file and start asking questions right away.
+          With <span className="font-bold">mypdf-helper</span>, transform how
+          you interact with your documents. Upload any PDF and get instant,{" "}
+          <span className="font-bold">AI-driven insights</span>. Whether it's
+          extracting key information or answering complex questions, our
+          platform helps you make sense of your PDFs in seconds. Say goodbye to
+          endless scrolling and searching, let AI do the heavy lifting.
         </p>
 
         <Link

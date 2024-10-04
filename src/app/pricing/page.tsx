@@ -77,10 +77,16 @@ const PricingPage = async () => {
     <>
       <MaxWidthWrapper className="mb-8 mt-24 text-center max-w-5xl">
         <div className="mx-auto mb-10 sm:max-w-lg">
-          <h1 className="text-6xl font-bold sm:text-7xl">Pricing</h1>
+          <h1 className="text-4xl font-bold sm:text-4xl">
+            Choose the Plan That Suits Your Needs
+          </h1>
           <p className="mt-5 text-gray-600 sm:text-lg">
-            Whether you&apos;re just trying out our service or need more,
-            we&apos;ve got you covered.
+            At mypdf-helper, we believe in providing flexibility and value for
+            every user. Whether you're just getting started or need advanced
+            features, we've got you covered. Explore our free and premium plans
+            designed to help you get the most out of your PDF documents. Unlock
+            powerful AI capabilities and streamline your workflow with just the
+            right plan.
           </p>
         </div>
 
