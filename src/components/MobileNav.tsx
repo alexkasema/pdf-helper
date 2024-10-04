@@ -92,7 +92,7 @@ const MobileNav = ({ isAuth }: MobileNavProps) => {
                   <Link
                     onClick={() => closeOnCurrent("/dashboard/billing")}
                     className="flex items-center w-full font-semibold"
-                    href="/dashboard"
+                    href="/dashboard/billing"
                   >
                     Manage Subscription
                   </Link>
