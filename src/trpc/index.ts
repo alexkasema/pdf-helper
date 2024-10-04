@@ -156,7 +156,7 @@ export const appRouter = router({
     const { userId } = ctx;
 
     //! because we are on the server side we are not able to use relative urls
-    const billingUrl = absoluteUrl("/dashboard/billing");
+    // const billingUrl = absoluteUrl("/dashboard/billing");
     if (!userId) throw new TRPCError({ code: "UNAUTHORIZED" });
 
     const dbUser = await db.user.findFirst({
@@ -176,7 +176,7 @@ export const appRouter = router({
       //! send the user to a management prage
       const stripeSession = await stripe.billingPortal.sessions.create({
         customer: dbUser.stripeCustomerId,
-        return_url: billingUrl,
+        return_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/dashboard/billing`,
       });
 
       //! a hosted page that stripe returns to us
@@ -184,8 +184,8 @@ export const appRouter = router({
     }
 
     const stripeSession = await stripe.checkout.sessions.create({
-      success_url: billingUrl,
-      cancel_url: billingUrl,
+      success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/dashboard/billing`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/dashboard/billing`,
       payment_method_types: ["card"],
       mode: "subscription",
       billing_address_collection: "auto",
