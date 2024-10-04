@@ -198,9 +198,9 @@ export const appRouter = router({
       metadata: {
         userId: userId,
       },
-      payment_intent_data: {
-        metadata: { userId: userId },
-      },
+      // payment_intent_data: {
+      //   metadata: { userId: userId },
+      // },
     });
 
     return { url: stripeSession.url };

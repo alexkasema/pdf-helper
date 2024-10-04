@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const session = event.data.object as Stripe.Checkout.Session;
+  const session = (await event.data.object) as Stripe.Checkout.Session;
 
   if (!session?.metadata?.userId) {
     return new Response("No user ID in session metadata", {
