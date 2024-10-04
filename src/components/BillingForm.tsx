@@ -59,7 +59,7 @@ const BillingForm = ({ subscriptionPlan }: BillingFormProps) => {
                 <Loader2 className="mr-4 h-4 w-4 animate-spin" />
               ) : null}
               {subscriptionPlan.isSubscribed
-                ? "Pro Subscription Plan"
+                ? "Manage Subscription"
                 : "Upgrade to PRO"}
             </Button>
 
