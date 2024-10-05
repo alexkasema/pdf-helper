@@ -59,12 +59,6 @@ AI-powered SaaS platform that lets users upload, index, and interact with PDF do
 
 - Create OpenAI account and obtain your `OPENAI_API_KEY`
 
-- To upload a menu item Create a Cloudinary account and obtain your
-  - CLOUD NAME
-  - API KEY
-  - API SECRET
-  - UPLOAD PRESET
-
 ## **Environment Variables**
 
 Rename the .env.example file to .env and add the following
