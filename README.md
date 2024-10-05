@@ -142,8 +142,8 @@ Contributions are always welcome!
 ![App Images](./public/FeatureSection.png)
 ![App Images](./public/Dashboard.png)
 ![App Images](./public/FileUploader.png)
-![App Images](./public/FileUploadPreview.png)
-![App Images](./public/DashboardPreview.png)
+![App Images](./public/FileUploadPreview.jpg)
+![App Images](./public/DashboardPreview.jpg)
 
 ## License
 
