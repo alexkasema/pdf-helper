@@ -142,8 +142,8 @@ Contributions are always welcome!
 ![App Images](./public/FeatureSection.png)
 ![App Images](./public/Dashboard.png)
 ![App Images](./public/FileUploader.png)
-![App Images](./public/file-upload-preview.png)
-![App Images](./public/dashboard-preview.png)
+![App Images](./public/FileUploadPreview.png)
+![App Images](./public/DashboardPreview.png)
 
 ## License
 
@@ -168,6 +168,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Contact
 
 <p> Feel free to reach out via <a href="https://www.linkedin.com/in/alexkasema/">LinkedIn</a>, email: lexmulwa@gmail.com or open a GitHub issue if you have any questions or feedback.</p>
 
