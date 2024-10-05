@@ -15,8 +15,8 @@ export function absoluteUrl(path: string) {
 
 export function constructMetadata({
   title = "mypdf-helper - chat with your pdf",
-  description = "mypdf-helper is an open-source software to make chatting to your PDF files easy.",
-  image = "/thumbnail.png",
+  description = "mypdf-helper is an AI-powered SaaS platform that lets users upload, index, and interact with PDF documents using OpenAI and Pinecone.",
+  image = "/HeroSection.png",
   icons = "/favicon.ico",
   noIndex = false,
 }: {
